@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArriendaBot Empresas - Soluciones Personalizadas para Agencias Inmobiliarias</title>
+    <meta name="description" content="Soluciones personalizadas de IA para agencias inmobiliarias. Agente especializado en arriendos con contexto específico de tu empresa.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/isotipo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles-v2.css">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arriendabot.com/empresas">
+    <meta property="og:title" content="ArriendaBot Empresas - Soluciones Personalizadas">
+    <meta property="og:description" content="Soluciones personalizadas de IA para agencias inmobiliarias. Agente especializado con contexto específico de tu empresa.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://arriendabot.com/empresas">
+    <meta property="twitter:title" content="ArriendaBot Empresas - Soluciones Personalizadas">
+    <meta property="twitter:description" content="Soluciones personalizadas de IA para agencias inmobiliarias. Agente especializado con contexto específico de tu empresa.">
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- Loading indicator -->
+    <div id="loading" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: 'Inter', sans-serif;
+        z-index: 9999;
+    ">
+        <div style="text-align: center;">
+            <img src="../assets/images/isotipo.png" alt="Cargando" style="width:72px;height:72px;display:block;margin:0 auto 1rem;filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25)); border-radius: 12px;" />
+            <div style="font-size: 1.2rem; font-weight: 600;">Cargando ArriendaBot Empresas...</div>
+        </div>
+    </div>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        // Header Component (igual que en la landing)
+        const Header = () => {
+            return (
+                <header className="header">
+                    <div className="container">
+                        <nav className="nav">
+                            <div className="logo">
+                                <img src="../assets/images/logo.png" alt="ArriendaBot" className="logo-img" />
+                            </div>
+                            <ul className="nav-links">
+                                <li><a href="../index.html#inicio">Inicio</a></li>
+                                <li><a href="../index.html#caracteristicas">Características</a></li>
+                                <li><a href="../index.html#nuestros-productos">Nuestros Productos</a></li>
+                                <li><a href="../index.html#contacto">Contacto</a></li>
+                            </ul>
+                            <div className="nav-actions">
+                                <a href="http://app.arriendabot.com/" className="btn btn-secondary">Acceder</a>
+                            </div>
+                        </nav>
+                    </div>
+                </header>
+            );
+        };
+        
+        // Hero Component específico para empresas
+        const EnterpriseHero = () => {
+            return (
+                <section className="enterprise-hero">
+                    <div className="container">
+                        <div className="enterprise-hero-content fade-in-up">
+                            <div className="enterprise-logo-section">
+                                <img src="../assets/images/isotipo.png" alt="ArriendaBot" className="enterprise-logo" />
+                            </div>
+                            <h1>
+                                Soluciones personalizadas para <br />
+                                <span className="highlight">Agencias Inmobiliarias</span><br />
+                                <span className="subtitle">potenciada con IA</span>
+                            </h1>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+        
+        // Commitment Section
+        const Commitment = () => {
+            return (
+                <section className="commitment">
+                    <div className="container">
+                        <div className="commitment-content">
+                            <h2>Nuestro Compromiso</h2>
+                            <p>
+                                Buscamos facilitar la operación de <strong>tu empresa</strong> haciéndola más eficiente 
+                                por medio de nuestro <strong><em>Agente de IA</em></strong> hecho a medida, perfecto para atender casos generales 
+                                y específicos con el contexto de <strong>tu empresa</strong>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+        
+        // Why Work Section
+        const WhyWork = () => {
+            return (
+                <section className="why-work">
+                    <div className="container">
+                        <div className="why-work-content">
+                            <h3>¿Por qué trabajar con ArriendaBot?</h3>
+                            <p>
+                                En ArriendaBot buscamos desarrollar soluciones personalizadas para nuestros clientes, 
+                                que sean fáciles de implementar en el espacio de trabajo. Apuntamos a mejorar la eficiencia 
+                                de tus empleados, brindándoles una herramienta completa, con conocimiento de la legislación 
+                                correspondiente, permanentemente actualizada.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+        
+        // Main App Component
+        const App = () => {
+            const [loading, setLoading] = useState(true);
+            
+            useEffect(() => {
+                // Simular carga de la aplicación
+                const timer = setTimeout(() => {
+                    setLoading(false);
+                    document.getElementById('loading').style.display = 'none';
+                }, 2000);
+                
+                return () => clearTimeout(timer);
+            }, []);
+            
+            if (loading) {
+                return null;
+            }
+            
+            return (
+                <div className="App">
+                    <Header />
+                    <EnterpriseHero />
+                    <Commitment />
+                    <WhyWork />
+                </div>
+            );
+        };
+        
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
