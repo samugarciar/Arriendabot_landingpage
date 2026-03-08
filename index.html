@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arriendabot - Tu hogar ideal te está esperando</title>
-    <meta name="description" content="Arriendabot es la plataforma inteligente que conecta arrendadores y arrendatarios. Encuentra tu hogar ideal o publica tu propiedad de forma rápida y segura.">
-    
+    <meta name="description"
+        content="Arriendabot es la plataforma inteligente que conecta arrendadores y arrendatarios. Encuentra tu hogar ideal o publica tu propiedad de forma rápida y segura.">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/isotipo.png">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- React CDN -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles-v2.css">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://arriendabot.com/">
     <meta property="og:title" content="Arriendabot - Tu hogar ideal te está esperando">
-    <meta property="og:description" content="La plataforma inteligente que conecta arrendadores y arrendatarios de forma rápida, segura y eficiente.">
-    
+    <meta property="og:description"
+        content="La plataforma inteligente que conecta arrendadores y arrendatarios de forma rápida, segura y eficiente.">
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://arriendabot.com/">
     <meta property="twitter:title" content="Arriendabot - Tu hogar ideal te está esperando">
-    <meta property="twitter:description" content="La plataforma inteligente que conecta arrendadores y arrendatarios de forma rápida, segura y eficiente.">
+    <meta property="twitter:description"
+        content="La plataforma inteligente que conecta arrendadores y arrendatarios de forma rápida, segura y eficiente.">
 </head>
+
 <body>
     <div id="root"></div>
-    
+
     <!-- Loading indicator -->
     <div id="loading" style="
         position: fixed;
@@ -53,14 +60,15 @@
         z-index: 9999;
     ">
         <div style="text-align: center;">
-            <img src="assets/images/isotipo.png" alt="Cargando" style="width:72px;height:72px;display:block;margin:0 auto 1rem;filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25)); border-radius: 12px;" />
+            <img src="assets/images/isotipo.png" alt="Cargando"
+                style="width:72px;height:72px;display:block;margin:0 auto 1rem;filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25)); border-radius: 12px;" />
             <div style="font-size: 1.2rem; font-weight: 600;">Cargando Arriendabot...</div>
         </div>
     </div>
-    
+
     <script type="text/babel">
         const { useState, useEffect } = React;
-        
+
         // Header Component
         const Header = () => {
             return (
@@ -84,7 +92,7 @@
                 </header>
             );
         };
-        
+
         // Hero Component
         const Hero = () => {
             return (
@@ -103,7 +111,7 @@
                 </section>
             );
         };
-        
+
         // Features Component
         const Features = () => {
             const features = [
@@ -138,13 +146,13 @@
                     description: 'Trabajamos constantemente por hacer nuestros procesos más rápidos.'
                 }
             ];
-            
+
             return (
                 <section className="features" id="caracteristicas">
                     <div className="container">
                         <h2>ArriendaBot - Asistente Legal Inteligente</h2>
-                        <p style={{textAlign: 'center', marginBottom: '3rem', fontSize: '1.1rem', color: 'var(--text-gray)'}}>
-                            Un chatbot especializado en leyes de arriendo en Colombia con gestión avanzada de archivos, 
+                        <p style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '1.1rem', color: 'var(--text-gray)' }}>
+                            Un chatbot especializado en leyes de arriendo en Colombia con gestión avanzada de archivos,
                             memoria conversacional persistente y interfaz moderna optimizada.
                         </p>
                         <div className="features-grid">
@@ -162,7 +170,7 @@
                 </section>
             );
         };
-        
+
         // Products Component
         const Products = () => {
             return (
@@ -171,7 +179,7 @@
                         <div className="container">
                             <div className="products-content">
                                 <h2>Nuestros Productos</h2>
-                                                                <div className="product-item" onClick={() => window.location.href = 'empresas/index.html'}>
+                                <div className="product-item" onClick={() => window.location.href = 'empresas/empresas_index.html'}>
                                     <div className="product-info">
                                         <h3>ArriendaBot para Empresas</h3>
                                         <p>Solución empresarial completa para gestión masiva de contratos de arriendo</p>
@@ -186,7 +194,7 @@
                 </section>
             );
         };
-        
+
         // Footer Component
         const Footer = () => {
             return (
@@ -196,11 +204,11 @@
                             <div className="footer-section">
                                 <h3>🤖 ArriendaBot</h3>
                                 <p>
-                                    Asistente legal inteligente especializado en leyes de arriendo colombianas. 
+                                    Asistente legal inteligente especializado en leyes de arriendo colombianas.
                                     Revolucionamos la gestión de contratos con IA avanzada.
                                 </p>
                             </div>
-                            
+
                             <div className="footer-section">
                                 <h3>Enlaces Rápidos</h3>
                                 <ul>
@@ -211,7 +219,7 @@
                                     <li><a href="#">Política de Privacidad</a></li>
                                 </ul>
                             </div>
-                            
+
                             <div className="footer-section">
                                 <h3>Funcionalidades</h3>
                                 <ul>
@@ -222,7 +230,7 @@
                                     <li><a href="#">Soporte 24/7</a></li>
                                 </ul>
                             </div>
-                            
+
                             <div className="footer-section">
                                 <h3>Contacto</h3>
                                 <ul>
@@ -233,7 +241,7 @@
                                 </ul>
                             </div>
                         </div>
-                        
+
                         <div className="footer-bottom">
                             <p>&copy; 2025 ArriendaBot. Todos los derechos reservados. Asistente legal inteligente hecho con ❤️ en Colombia.</p>
                         </div>
@@ -241,25 +249,25 @@
                 </footer>
             );
         };
-        
+
         // Main App Component
         const App = () => {
             const [loading, setLoading] = useState(true);
-            
+
             useEffect(() => {
                 // Simular carga de la aplicación
                 const timer = setTimeout(() => {
                     setLoading(false);
                     document.getElementById('loading').style.display = 'none';
                 }, 2000);
-                
+
                 return () => clearTimeout(timer);
             }, []);
-            
+
             if (loading) {
                 return null;
             }
-            
+
             return (
                 <div className="App">
                     <Header />
@@ -270,10 +278,11 @@
                 </div>
             );
         };
-        
+
         // Render the app
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
 </body>
+
 </html>
